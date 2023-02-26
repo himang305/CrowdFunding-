@@ -57,6 +57,7 @@ contract CrowdFunding is Initializable, OwnableUpgradeable, UUPSUpgradeable, Ree
       counter++;
       Campaign storage camp = CampaignMapping[counter];
       camp.name = _name;
+      camp.campaignOwner = msg.sender;
       camp.fundingGoal = _fundingGoal;
       camp.campaignEndTime = block.timestamp + _durationInDays * 86400;
       camp.FundToken = IERC20(_fundToken);
